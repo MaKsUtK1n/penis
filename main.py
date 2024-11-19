@@ -11,7 +11,7 @@ from random import choice as random
 from random import randint
 
 
-con = connect("users.db", check_same_thread=False, isolation_level=None)
+con = connect("penis/users.db", check_same_thread=False, isolation_level=None)
 cursor = con.cursor()
 bot = TeleBot(bot_token, "HTML", disable_notification=True)
 headers = {'Content-Type': 'application/json', 'Crypto-Pay-API-Token': crypto_token}
