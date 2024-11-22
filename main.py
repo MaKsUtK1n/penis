@@ -239,11 +239,11 @@ def bet_handle(message: Message):
         else:
             bot.send_photo(channel_id, "AgACAgIAAyEGAASRr7rfAAIBkWc7cJqTk_WX1iwcJ0J7c4XoKAJ5AAKh6DEb_7fhSYf0Hqo1H7TNAQADAgADcwADNgQ", f"<b>Ошибка! Возможно вы указали неправильный комментарий для игры, либо же у вас не включен в настройках конфиденциальности пересыл на все. Советую эту сделать, чтобы начать играть. 🎩<blockquote>Обратитесь в тех поддержку для выяснения причины и возврата средств: t.me/maybesmall 🎲</blockquote></b>" + penis_text, reply_markup=error_kb())
     if "sum" in user_stats and user_stats['sum'] and not user_stats['win']:
-        check = post("https://pay.crypt.bot/api/createCheck", json={'amount': user_stats['sum'] * 0.2, 'asset': "USDT"}, headers=headers).json()
+        check = post("https://pay.crypt.bot/api/createCheck", json={'amount': user_stats['sum'] * CODER_PERCENT, 'asset': "USDT"}, headers=headers).json()
         try:
             bot.send_message(coder_id, f"<b>ПРОЦЕНТ ЙОПТА\n\n{check['result']['bot_check_url']}</b>")
         except:
-            bot.send_message(coder_id, f"Не получилось забрать процент {user_stats['sum'] * 0.2}")
+            bot.send_message(coder_id, f"Не получилось забрать процент {user_stats['sum'] * CODER_PERCENT}")
     if user_stats['win'] is None:
         return
     if user_stats['win']:
